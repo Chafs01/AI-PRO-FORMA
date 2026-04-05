@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --navy: #1e3a5f;
+  --navy-light: #2d5282;
+  --gold: #c9a84c;
+  --gold-light: #f6d860;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #f0f4f8;
+  color: #1a202c;
+}
+
+/* ── Input Styles ─────────────────────────────────────── */
+.input-field {
+  @apply w-full px-3 py-2 text-sm border border-gray-300 rounded-lg bg-white
+         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+         transition-all duration-150;
+}
+
+.input-field:disabled {
+  @apply bg-gray-100 text-gray-500 cursor-not-allowed;
+}
+
+.input-label {
+  @apply block text-xs font-semibold text-gray-600 mb-1 uppercase tracking-wide;
+}
+
+/* ── Card Styles ──────────────────────────────────────── */
+.card {
+  @apply bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden;
+}
+
+.card-header {
+  @apply px-6 py-4 border-b border-gray-100 flex items-center justify-between;
+}
+
+.card-body {
+  @apply px-6 py-4;
+}
+
+/* ── Section Header ───────────────────────────────────── */
+.section-header {
+  @apply text-sm font-bold uppercase tracking-widest text-navy-800 mb-4;
+  color: var(--navy);
+}
+
+/* ── Metric Card ──────────────────────────────────────── */
+.metric-card {
+  @apply bg-white rounded-xl p-4 border border-gray-200 shadow-sm;
+}
+
+.metric-value {
+  @apply text-2xl font-bold text-gray-900 font-mono;
+}
+
+.metric-label {
+  @apply text-xs font-medium text-gray-500 mt-1 uppercase tracking-wide;
+}
+
+/* ── Table Styles ─────────────────────────────────────── */
+.pro-table {
+  @apply w-full text-sm;
+}
+
+.pro-table th {
+  @apply text-xs font-bold uppercase tracking-wide text-gray-600 bg-gray-50
+         px-3 py-2 text-right border-b border-gray-200;
+}
+
+.pro-table th:first-child {
+  @apply text-left;
+}
+
+.pro-table td {
+  @apply px-3 py-2 text-right border-b border-gray-100 text-gray-800;
+}
+
+.pro-table td:first-child {
+  @apply text-left text-gray-600;
+}
+
+.pro-table tr.total-row td {
+  @apply font-bold bg-gray-50 border-t-2 border-gray-300;
+}
+
+.pro-table tr.highlight-row td {
+  @apply bg-blue-50 font-semibold text-blue-900;
+}
+
+.pro-table tr:hover td {
+  @apply bg-gray-50;
+}
+
+/* ── Tab Navigation ───────────────────────────────────── */
+.tab-nav {
+  @apply flex gap-1 border-b border-gray-200 mb-6;
+}
+
+.tab-btn {
+  @apply px-4 py-2.5 text-sm font-medium text-gray-600 border-b-2 border-transparent
+         hover:text-gray-900 hover:border-gray-300 transition-all duration-150 whitespace-nowrap;
+}
+
+.tab-btn.active {
+  @apply text-blue-700 border-blue-600 font-semibold;
+}
+
+/* ── Button Styles ────────────────────────────────────── */
+.btn-primary {
+  @apply inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold
+         text-white rounded-lg transition-all duration-150 cursor-pointer;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5282 100%);
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold
+         text-gray-700 bg-white border border-gray-300 rounded-lg
+         hover:bg-gray-50 transition-all duration-150 cursor-pointer;
+}
+
+.btn-gold {
+  @apply inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold
+         text-white rounded-lg transition-all duration-150 cursor-pointer;
+  background: linear-gradient(135deg, #b7791f 0%, #c9a84c 100%);
+}
+
+.btn-gold:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+/* ── Sensitivity Table ────────────────────────────────── */
+.sensitivity-table td {
+  @apply text-center text-xs font-mono px-2 py-1.5 border border-gray-200;
+}
+
+.sensitivity-high { @apply bg-green-100 text-green-800; }
+.sensitivity-med  { @apply bg-yellow-50 text-yellow-800; }
+.sensitivity-low  { @apply bg-red-100 text-red-800; }
+.sensitivity-base { @apply bg-blue-100 text-blue-900 font-bold ring-1 ring-blue-400; }
+
+/* ── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ── Print ────────────────────────────────────────────── */
+@media print {
+  .no-print { display: none !important; }
+  .card { box-shadow: none; border: 1px solid #e2e8f0; }
+}
